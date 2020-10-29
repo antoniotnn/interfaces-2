@@ -2,14 +2,17 @@ package models.services;
 
 public class PaypalService implements OnlinePaymentService {
 
+	private static final double PAYMENT_FEE=0.02;
+	private static final double MONTHLY_INTEREST=0.01;
+	
 	@Override
 	public Double paymentFee(Double amount) {
-		return amount+(amount*0.02);
+		return amount*PAYMENT_FEE;
 	}
 
 	@Override
 	public Double interest(Double amount, Integer months) {
-		return amount+(amount*0.01)*months;
+		return amount*MONTHLY_INTEREST*months;
 	}
 
 }
